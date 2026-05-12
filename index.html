@@ -3,62 +3,81 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>One Last Night — Squeeze Team MTL</title>
+<title>ONE LAST NIGHT</title>
 
 <style>
-body {
-  margin: 0;
-  background: #000;
-  color: #fff;
-  font-family: Arial, Helvetica, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  text-align: center;
+body{
+    margin:0;
+    background:black;
+    color:white;
+    font-family:Arial, Helvetica, sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    text-align:center;
 }
 
-.container {
-  max-width: 500px;
-  padding: 20px;
+.container{
+    width:90%;
+    max-width:400px;
 }
 
-h1 {
-  font-size: 36px;
-  letter-spacing: 4px;
-  margin-bottom: 5px;
+h1{
+    font-size:55px;
+    letter-spacing:4px;
+    margin-bottom:10px;
 }
 
-h2 {
-  font-size: 14px;
-  opacity: 0.6;
-  letter-spacing: 2px;
-  margin-bottom: 30px;
+.subtitle{
+    opacity:0.7;
+    margin-bottom:40px;
+    letter-spacing:2px;
 }
 
-.info {
-  font-size: 16px;
-  letter-spacing: 2px;
-  margin-bottom: 20px;
+.info{
+    margin-bottom:35px;
+    line-height:1.8;
+    letter-spacing:2px;
 }
 
-.countdown {
-  font-size: 14px;
-  opacity: 0.5;
-  margin-bottom: 25px;
+.message{
+    font-size:14px;
+    opacity:0.7;
+    margin-bottom:20px;
 }
 
-iframe {
-  width: 100%;
-  height: 260px;
-  border: none;
+input{
+    width:100%;
+    padding:15px;
+    margin-bottom:15px;
+    background:#111;
+    border:1px solid #222;
+    color:white;
+    box-sizing:border-box;
+    text-align:center;
+    font-size:15px;
 }
 
-.note {
-  margin-top: 20px;
-  font-size: 11px;
-  opacity: 0.4;
-  letter-spacing: 1px;
+button{
+    width:100%;
+    padding:15px;
+    border:none;
+    background:white;
+    color:black;
+    font-weight:bold;
+    cursor:pointer;
+    letter-spacing:2px;
+}
+
+button:hover{
+    opacity:0.8;
+}
+
+.note{
+    margin-top:25px;
+    opacity:0.4;
+    font-size:12px;
 }
 </style>
 </head>
@@ -67,40 +86,39 @@ iframe {
 
 <div class="container">
 
-  <h1>ONE LAST NIGHT</h1>
-  <h2>SQUEEZE TEAM MTL</h2>
+<h1>ONE LAST NIGHT</h1>
 
-  <div class="info">
-    MAY 23<br>
-    8:00 PM<br><br>
-    LOCATION DROPS MAY 18
-  </div>
-
-  <div class="countdown" id="countdown"></div>
-
-  <!-- 🔥 REPLACE THIS LINK WITH YOUR TALLY LINK -->
-  <iframe src="https://tally.so/r/YOURFORM"></iframe>
-
-  <div class="note">
-    Private location. Registered guests only.
-  </div>
-
+<div class="subtitle">
+SQUEEZE TEAM MTL
 </div>
 
-<script>
-const countdown = document.getElementById("countdown");
-const targetDate = new Date("May 18, 2026 00:00:00").getTime();
+<div class="info">
+MAY 23<br>
+8:00 PM<br>
+MONTREAL
+</div>
 
-setInterval(() => {
-  const now = new Date().getTime();
-  const diff = targetDate - now;
+<div class="message">
+Enter your email or phone number to receive the location when it drops.
+</div>
 
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+<form action="https://formspree.io/f/YOURID" method="POST">
 
-  countdown.innerHTML = "Location drops in " + days + "d " + hours + "h";
-}, 1000);
-</script>
+<input type="email" name="email" placeholder="EMAIL">
+
+<input type="tel" name="phone" placeholder="PHONE NUMBER">
+
+<button type="submit">
+GET ACCESS
+</button>
+
+</form>
+
+<div class="note">
+Location revealed soon.
+</div>
+
+</div>
 
 </body>
 </html>
