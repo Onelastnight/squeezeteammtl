@@ -17,7 +17,7 @@
 }
 
 body{
-    background:#000;
+    background:black;
     overflow:hidden;
     font-family:'Montserrat',sans-serif;
     color:white;
@@ -25,17 +25,28 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
+}
+
+/* MAIN SITE */
+
+.main-site{
     position:relative;
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
 }
 
 /* Animated background glow */
+
 .background-glow{
     position:absolute;
     width:700px;
     height:700px;
     background:radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0) 70%);
     animation:pulse 6s infinite ease-in-out;
-    z-index:0;
 }
 
 @keyframes pulse{
@@ -43,10 +54,12 @@ body{
         transform:scale(1);
         opacity:0.4;
     }
+
     50%{
         transform:scale(1.2);
         opacity:0.7;
     }
+
     100%{
         transform:scale(1);
         opacity:0.4;
@@ -54,13 +67,14 @@ body{
 }
 
 /* Floating particles */
+
 .particle{
     position:absolute;
     width:2px;
     height:2px;
     background:white;
     border-radius:50%;
-    opacity:0.2;
+    opacity:0.15;
     animation:float linear infinite;
 }
 
@@ -68,10 +82,13 @@ body{
     from{
         transform:translateY(100vh);
     }
+
     to{
         transform:translateY(-100vh);
     }
 }
+
+/* Main container */
 
 .container{
     position:relative;
@@ -83,42 +100,43 @@ body{
 }
 
 /* Main title */
+
 h1{
     font-size:65px;
     font-weight:900;
     letter-spacing:10px;
-    line-height:1;
     margin-bottom:15px;
-    color:white;
+
     text-shadow:
-        0 0 10px rgba(255,255,255,0.8),
-        0 0 20px rgba(255,255,255,0.4),
-        0 0 40px rgba(255,255,255,0.2);
+    0 0 10px rgba(255,255,255,0.8),
+    0 0 20px rgba(255,255,255,0.4),
+    0 0 40px rgba(255,255,255,0.2);
+
     animation:titleGlow 4s infinite ease-in-out;
 }
 
 @keyframes titleGlow{
+
     0%{
         text-shadow:
-        0 0 10px rgba(255,255,255,0.6),
-        0 0 20px rgba(255,255,255,0.3);
+        0 0 10px rgba(255,255,255,0.5),
+        0 0 20px rgba(255,255,255,0.2);
     }
 
     50%{
         text-shadow:
-        0 0 20px rgba(255,255,255,1),
-        0 0 40px rgba(255,255,255,0.7),
-        0 0 60px rgba(255,255,255,0.3);
+        0 0 25px rgba(255,255,255,1),
+        0 0 45px rgba(255,255,255,0.6);
     }
 
     100%{
         text-shadow:
-        0 0 10px rgba(255,255,255,0.6),
-        0 0 20px rgba(255,255,255,0.3);
+        0 0 10px rgba(255,255,255,0.5),
+        0 0 20px rgba(255,255,255,0.2);
     }
+
 }
 
-/* Subtitle */
 .subtitle{
     font-size:12px;
     letter-spacing:6px;
@@ -126,16 +144,13 @@ h1{
     margin-bottom:45px;
 }
 
-/* Event info */
 .info{
     font-size:15px;
     line-height:2;
     letter-spacing:4px;
     margin-bottom:35px;
-    animation:fadeUp 2s ease;
 }
 
-/* Message */
 .message{
     font-size:13px;
     opacity:0.65;
@@ -144,6 +159,7 @@ h1{
 }
 
 /* Inputs */
+
 input{
     width:100%;
     padding:16px;
@@ -154,7 +170,6 @@ input{
     text-align:center;
     font-size:14px;
     letter-spacing:2px;
-    backdrop-filter:blur(8px);
     transition:0.3s ease;
 }
 
@@ -164,7 +179,8 @@ input:focus{
     box-shadow:0 0 20px rgba(255,255,255,0.08);
 }
 
-/* Button */
+/* Buttons */
+
 button{
     width:100%;
     padding:16px;
@@ -179,10 +195,11 @@ button{
 
 button:hover{
     transform:scale(1.03);
-    box-shadow:0 0 30px rgba(255,255,255,0.25);
+    box-shadow:0 0 30px rgba(255,255,255,0.2);
 }
 
-/* Music button */
+/* Enter experience button */
+
 .music-btn{
     margin-top:18px;
     background:transparent;
@@ -197,6 +214,7 @@ button:hover{
 }
 
 /* Footer */
+
 .note{
     margin-top:30px;
     font-size:11px;
@@ -204,23 +222,63 @@ button:hover{
     letter-spacing:3px;
 }
 
-/* Animations */
+/* Video screen */
+
+.video-screen{
+    position:fixed;
+    inset:0;
+    background:black;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+
+.video-screen video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* Back button */
+
+.back-btn{
+    position:absolute;
+    bottom:20px;
+    left:20px;
+
+    z-index:1000;
+
+    background:rgba(0,0,0,0.5);
+    color:white;
+
+    border:1px solid rgba(255,255,255,0.2);
+
+    padding:12px 18px;
+
+    font-size:11px;
+    letter-spacing:3px;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(10px);
+
+    width:auto;
+}
+
+.back-btn:hover{
+    background:white;
+    color:black;
+}
+
+/* Fade animation */
+
 @keyframes fadeIn{
     from{
         opacity:0;
-        transform:translateY(15px);
+        transform:translateY(10px);
     }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
 
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(20px);
-    }
     to{
         opacity:1;
         transform:translateY(0);
@@ -232,72 +290,127 @@ button:hover{
 
 <body>
 
-<!-- Animated background -->
-<div class="background-glow"></div>
+<!-- FULLSCREEN VIDEO -->
 
-<!-- Floating particles -->
-<div class="particle" style="left:10%; animation-duration:12s;"></div>
-<div class="particle" style="left:25%; animation-duration:18s;"></div>
-<div class="particle" style="left:40%; animation-duration:15s;"></div>
-<div class="particle" style="left:60%; animation-duration:20s;"></div>
-<div class="particle" style="left:75%; animation-duration:14s;"></div>
-<div class="particle" style="left:90%; animation-duration:17s;"></div>
+<div class="video-screen" id="videoScreen">
 
-<div class="container">
+    <video id="mainVideo" autoplay loop muted>
 
-    <h1>ONE LAST NIGHT</h1>
+        <source src="video.mp4" type="video/mp4">
 
-    <div class="subtitle">
-        SQUEEZE TEAM MTL
-    </div>
+    </video>
 
-    <div class="info">
-        MAY 23<br>
-        8:00 PM<br>
-        MONTREAL
-    </div>
-
-    <div class="message">
-        Enter your email or phone number to receive the location when it drops.
-    </div>
-
-    <form action="https://formspree.io/f/mjglzknd" method="POST">
-
-        <input 
-            type="email" 
-            name="email" 
-            placeholder="EMAIL"
-        >
-
-        <input 
-            type="tel" 
-            name="phone" 
-            placeholder="PHONE NUMBER"
-        >
-
-        <button type="submit">
-            GET ACCESS
-        </button>
-
-    </form>
-
-    <!-- MUSIC -->
-    <audio id="bgmusic" loop>
-        <source src="song.mp3" type="audio/mpeg">
-    </audio>
-
-    <button 
-        class="music-btn"
-        onclick="document.getElementById('bgmusic').play()"
-    >
-        ENTER EXPERIENCE
+    <button class="back-btn" onclick="closeVideo()">
+        GO BACK
     </button>
 
-    <div class="note">
-        LOCATION REVEALED SOON
+</div>
+
+<!-- MAIN WEBSITE -->
+
+<div class="main-site" id="mainSite">
+
+    <!-- Background glow -->
+
+    <div class="background-glow"></div>
+
+    <!-- Floating particles -->
+
+    <div class="particle" style="left:10%; animation-duration:12s;"></div>
+    <div class="particle" style="left:25%; animation-duration:18s;"></div>
+    <div class="particle" style="left:40%; animation-duration:15s;"></div>
+    <div class="particle" style="left:60%; animation-duration:20s;"></div>
+    <div class="particle" style="left:75%; animation-duration:14s;"></div>
+    <div class="particle" style="left:90%; animation-duration:17s;"></div>
+
+    <div class="container">
+
+        <h1>ONE LAST NIGHT</h1>
+
+        <div class="subtitle">
+            SQUEEZE TEAM MTL
+        </div>
+
+        <div class="info">
+            MAY 23<br>
+            8:00 PM<br>
+            MONTREAL
+        </div>
+
+        <div class="message">
+            Enter your email or phone number to receive the location when it drops.
+        </div>
+
+        <form action="https://formspree.io/f/mjglzknd" method="POST">
+
+            <input 
+                type="email" 
+                name="email" 
+                placeholder="EMAIL"
+            >
+
+            <input 
+                type="tel" 
+                name="phone" 
+                placeholder="PHONE NUMBER"
+            >
+
+            <button type="submit">
+                GET ACCESS
+            </button>
+
+        </form>
+
+        <button class="music-btn" onclick="openVideo()">
+            ENTER EXPERIENCE
+        </button>
+
+        <div class="note">
+            LOCATION REVEALED SOON
+        </div>
+
     </div>
 
 </div>
+
+<!-- BACKGROUND MUSIC -->
+
+<audio id="bgMusic" loop>
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+function openVideo(){
+
+    // Hide website
+    document.getElementById("mainSite").style.display = "none";
+
+    // Show video screen
+    document.getElementById("videoScreen").style.display = "flex";
+
+    // Play video
+    document.getElementById("mainVideo").play();
+
+    // Play music
+    document.getElementById("bgMusic").play();
+
+}
+
+function closeVideo(){
+
+    // Hide video
+    document.getElementById("videoScreen").style.display = "none";
+
+    // Show website again
+    document.getElementById("mainSite").style.display = "flex";
+
+    // Pause video only
+    document.getElementById("mainVideo").pause();
+
+}
+
+</script>
 
 </body>
 </html>
