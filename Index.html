@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One Last Night — Squeeze Team MTL</title>
+
+<style>
+body {
+  margin: 0;
+  background: #000;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.container {
+  max-width: 500px;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 36px;
+  letter-spacing: 4px;
+  margin-bottom: 5px;
+}
+
+h2 {
+  font-size: 14px;
+  opacity: 0.6;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+}
+
+.info {
+  font-size: 16px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.countdown {
+  font-size: 14px;
+  opacity: 0.5;
+  margin-bottom: 25px;
+}
+
+iframe {
+  width: 100%;
+  height: 260px;
+  border: none;
+}
+
+.note {
+  margin-top: 20px;
+  font-size: 11px;
+  opacity: 0.4;
+  letter-spacing: 1px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>ONE LAST NIGHT</h1>
+  <h2>SQUEEZE TEAM MTL</h2>
+
+  <div class="info">
+    MAY 23<br>
+    8:00 PM<br><br>
+    LOCATION DROPS MAY 18
+  </div>
+
+  <div class="countdown" id="countdown"></div>
+
+  <!-- 🔥 REPLACE THIS LINK WITH YOUR TALLY LINK -->
+  <iframe src="https://tally.so/r/YOURFORM"></iframe>
+
+  <div class="note">
+    Private location. Registered guests only.
+  </div>
+
+</div>
+
+<script>
+const countdown = document.getElementById("countdown");
+const targetDate = new Date("May 18, 2026 00:00:00").getTime();
+
+setInterval(() => {
+  const now = new Date().getTime();
+  const diff = targetDate - now;
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+
+  countdown.innerHTML = "Location drops in " + days + "d " + hours + "h";
+}, 1000);
+</script>
+
+</body>
+</html>
