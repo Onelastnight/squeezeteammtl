@@ -3,120 +3,299 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>ONE LAST NIGHT</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet">
+
 <style>
-body{
+
+*{
     margin:0;
-    background:black;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#000;
+    overflow:hidden;
+    font-family:'Montserrat',sans-serif;
     color:white;
-    font-family:Arial, Helvetica, sans-serif;
+    height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    height:100vh;
-    text-align:center;
+    position:relative;
+}
+
+/* Animated background glow */
+.background-glow{
+    position:absolute;
+    width:700px;
+    height:700px;
+    background:radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0) 70%);
+    animation:pulse 6s infinite ease-in-out;
+    z-index:0;
+}
+
+@keyframes pulse{
+    0%{
+        transform:scale(1);
+        opacity:0.4;
+    }
+    50%{
+        transform:scale(1.2);
+        opacity:0.7;
+    }
+    100%{
+        transform:scale(1);
+        opacity:0.4;
+    }
+}
+
+/* Floating particles */
+.particle{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+    opacity:0.2;
+    animation:float linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+    }
+    to{
+        transform:translateY(-100vh);
+    }
 }
 
 .container{
+    position:relative;
+    z-index:2;
     width:90%;
-    max-width:400px;
+    max-width:430px;
+    text-align:center;
+    animation:fadeIn 2s ease;
 }
 
+/* Main title */
 h1{
-    font-size:55px;
-    letter-spacing:4px;
-    margin-bottom:10px;
+    font-size:65px;
+    font-weight:900;
+    letter-spacing:10px;
+    line-height:1;
+    margin-bottom:15px;
+    color:white;
+    text-shadow:
+        0 0 10px rgba(255,255,255,0.8),
+        0 0 20px rgba(255,255,255,0.4),
+        0 0 40px rgba(255,255,255,0.2);
+    animation:titleGlow 4s infinite ease-in-out;
 }
 
+@keyframes titleGlow{
+    0%{
+        text-shadow:
+        0 0 10px rgba(255,255,255,0.6),
+        0 0 20px rgba(255,255,255,0.3);
+    }
+
+    50%{
+        text-shadow:
+        0 0 20px rgba(255,255,255,1),
+        0 0 40px rgba(255,255,255,0.7),
+        0 0 60px rgba(255,255,255,0.3);
+    }
+
+    100%{
+        text-shadow:
+        0 0 10px rgba(255,255,255,0.6),
+        0 0 20px rgba(255,255,255,0.3);
+    }
+}
+
+/* Subtitle */
 .subtitle{
-    opacity:0.7;
-    margin-bottom:40px;
-    letter-spacing:2px;
+    font-size:12px;
+    letter-spacing:6px;
+    opacity:0.6;
+    margin-bottom:45px;
 }
 
+/* Event info */
 .info{
+    font-size:15px;
+    line-height:2;
+    letter-spacing:4px;
     margin-bottom:35px;
-    line-height:1.8;
-    letter-spacing:2px;
+    animation:fadeUp 2s ease;
 }
 
+/* Message */
 .message{
-    font-size:14px;
-    opacity:0.7;
-    margin-bottom:20px;
+    font-size:13px;
+    opacity:0.65;
+    line-height:1.7;
+    margin-bottom:25px;
 }
 
+/* Inputs */
 input{
     width:100%;
-    padding:15px;
+    padding:16px;
     margin-bottom:15px;
-    background:#111;
-    border:1px solid #222;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.08);
     color:white;
-    box-sizing:border-box;
     text-align:center;
-    font-size:15px;
+    font-size:14px;
+    letter-spacing:2px;
+    backdrop-filter:blur(8px);
+    transition:0.3s ease;
 }
 
+input:focus{
+    outline:none;
+    border-color:rgba(255,255,255,0.3);
+    box-shadow:0 0 20px rgba(255,255,255,0.08);
+}
+
+/* Button */
 button{
     width:100%;
-    padding:15px;
+    padding:16px;
     border:none;
     background:white;
     color:black;
-    font-weight:bold;
+    font-weight:700;
+    letter-spacing:4px;
     cursor:pointer;
-    letter-spacing:2px;
+    transition:0.3s ease;
 }
 
 button:hover{
-    opacity:0.8;
+    transform:scale(1.03);
+    box-shadow:0 0 30px rgba(255,255,255,0.25);
 }
 
-.note{
-    margin-top:25px;
-    opacity:0.4;
-    font-size:12px;
+/* Music button */
+.music-btn{
+    margin-top:18px;
+    background:transparent;
+    border:1px solid rgba(255,255,255,0.1);
+    color:white;
+    font-size:11px;
+    letter-spacing:3px;
 }
+
+.music-btn:hover{
+    background:rgba(255,255,255,0.05);
+}
+
+/* Footer */
+.note{
+    margin-top:30px;
+    font-size:11px;
+    opacity:0.35;
+    letter-spacing:3px;
+}
+
+/* Animations */
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
 </style>
 </head>
 
 <body>
 
+<!-- Animated background -->
+<div class="background-glow"></div>
+
+<!-- Floating particles -->
+<div class="particle" style="left:10%; animation-duration:12s;"></div>
+<div class="particle" style="left:25%; animation-duration:18s;"></div>
+<div class="particle" style="left:40%; animation-duration:15s;"></div>
+<div class="particle" style="left:60%; animation-duration:20s;"></div>
+<div class="particle" style="left:75%; animation-duration:14s;"></div>
+<div class="particle" style="left:90%; animation-duration:17s;"></div>
+
 <div class="container">
 
-<h1>ONE LAST NIGHT</h1>
+    <h1>ONE LAST NIGHT</h1>
 
-<div class="subtitle">
-SQUEEZE TEAM MTL
-</div>
+    <div class="subtitle">
+        SQUEEZE TEAM MTL
+    </div>
 
-<div class="info">
-MAY 23<br>
-8:00 PM<br>
-MONTREAL
-</div>
+    <div class="info">
+        MAY 23<br>
+        8:00 PM<br>
+        MONTREAL
+    </div>
 
-<div class="message">
-Enter your email or phone number to receive the location when it drops.
-</div>
+    <div class="message">
+        Enter your email or phone number to receive the location when it drops.
+    </div>
 
-<form action="https://formspree.io/f/mjglzknd" method="POST">
+    <form action="https://formspree.io/f/mjglzknd" method="POST">
 
-<input type="email" name="email" placeholder="EMAIL">
+        <input 
+            type="email" 
+            name="email" 
+            placeholder="EMAIL"
+        >
 
-<input type="tel" name="phone" placeholder="PHONE NUMBER">
+        <input 
+            type="tel" 
+            name="phone" 
+            placeholder="PHONE NUMBER"
+        >
 
-<button type="submit">
-GET ACCESS
-</button>
+        <button type="submit">
+            GET ACCESS
+        </button>
 
-</form>
+    </form>
 
-<div class="note">
-Location revealed soon.
-</div>
+    <!-- MUSIC -->
+    <audio id="bgmusic" loop>
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
+
+    <button 
+        class="music-btn"
+        onclick="document.getElementById('bgmusic').play()"
+    >
+        ENTER EXPERIENCE
+    </button>
+
+    <div class="note">
+        LOCATION REVEALED SOON
+    </div>
 
 </div>
 
