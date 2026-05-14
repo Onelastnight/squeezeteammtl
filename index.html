@@ -16,6 +16,10 @@
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     background:black;
     overflow:hidden;
@@ -240,10 +244,74 @@ button:hover{
     object-fit:cover;
 }
 
+/* Story screen */
+
+.story-screen{
+    position:fixed;
+    inset:0;
+    background:black;
+    display:none;
+    overflow-y:auto;
+    z-index:999;
+    padding:40px 20px;
+}
+
+/* Story container */
+
+.story-container{
+    width:100%;
+    max-width:900px;
+    margin:auto;
+    padding-top:80px;
+    animation:fadeIn 1s ease;
+}
+
+.story-title{
+    font-size:60px;
+    font-weight:900;
+    line-height:1.1;
+    margin-bottom:25px;
+    letter-spacing:5px;
+}
+
+.story-subtitle{
+    opacity:0.5;
+    letter-spacing:4px;
+    margin-bottom:60px;
+    font-size:12px;
+}
+
+.story-text{
+    line-height:2;
+    color:rgba(255,255,255,0.75);
+    font-size:15px;
+}
+
+.story-text p{
+    margin-bottom:35px;
+}
+
+/* YouTube embed */
+
+.video-wrapper{
+    position:relative;
+    width:100%;
+    padding-bottom:56.25%;
+    margin-bottom:60px;
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+.video-wrapper iframe{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+}
+
 /* Back button */
 
 .back-btn{
-    position:absolute;
+    position:fixed;
     bottom:20px;
     left:20px;
 
@@ -295,9 +363,7 @@ button:hover{
 <div class="video-screen" id="videoScreen">
 
     <video id="mainVideo" autoplay loop muted>
-
         <source src="video.mp4" type="video/mp4">
-
     </video>
 
     <button class="back-btn" onclick="closeVideo()">
@@ -306,15 +372,162 @@ button:hover{
 
 </div>
 
+<!-- STORY SCREEN -->
+
+<div class="story-screen" id="storyScreen">
+
+    <button class="back-btn" onclick="closeStory()">
+        GO BACK
+    </button>
+
+    <div class="story-container">
+
+        <div class="story-title">
+            THE STORY OF<br>SQUEEZE TEAM MTL
+        </div>
+
+        <div class="story-subtitle">
+            MONTREAL UNDERGROUND AUTOMOTIVE CULTURE
+        </div>
+
+        <div class="video-wrapper">
+
+            <iframe
+                src="https://www.youtube.com/embed/saFnbARLOJQ"
+                title="Squeeze Team MTL"
+                frameborder="0"
+                allowfullscreen
+            ></iframe>
+
+        </div>
+
+        <div class="story-text">
+
+            <p>
+            Squeeze Team MTL officially started in March 2025.
+            </p>
+
+            <p>
+            It was not created by a company, a major organizer, or a group of people with a full plan. It started from one person, at a young age, newly connected to Montreal’s automotive scene, with a car, a camera mindset, and a frustration that turned into motivation.
+            </p>
+
+            <p>
+            The idea started after missing a major Montreal car event hosted by another known figure in the scene. At the time, being new around Montreal’s car culture, missing that night felt like missing something important. Instead of waiting for the next one, the decision was made to create something independent.
+            </p>
+
+            <p>
+            That was the moment Squeeze Team MTL was born.
+            </p>
+
+            <p>
+            The goal was never drama.
+            <br><br>
+            The goal was atmosphere.
+            </p>
+
+            <p>
+            The first Squeeze Team MTL meet happened in March 2025, and nobody expected it to go the way it did.
+            </p>
+
+            <p>
+            Over 100 cars showed up — possibly closer to 150.
+            </p>
+
+            <p>
+            The first location looked straight out of a movie. Cars were pulling in nonstop. People were filming. Fireworks were going off. The whole place had that Fast and Furious type of feeling where everyone knew something special was happening.
+            </p>
+
+            <p>
+            One of the most unforgettable moments from that first night was a white Infiniti G37 sliding under the lights while people surrounded the spot recording everything.
+            </p>
+
+            <p>
+            The spots were usually chosen by looking through maps, searching for areas with the right size, the right lighting, and the right atmosphere.
+            </p>
+
+            <p>
+            From the start, media was everything. The videos, edits, drone shots, reels, and clips were the reason people wanted to come.
+            </p>
+
+            <p>
+            The first posts from Squeeze Team MTL went crazy on Instagram and TikTok. People were seeing the energy online and wanted to experience it in person.
+            </p>
+
+            <p>
+            There was also drama early on.
+            </p>
+
+            <p>
+            Fake accounts, fake group chats, fake claims about who the “real” owner was started appearing online.
+            </p>
+
+            <p>
+            Looking back, it was more funny than stressful.
+            </p>
+
+            <p>
+            Because the real brand was never just an account name.
+            <br><br>
+            It was the atmosphere.
+            <br>
+            The footage.
+            <br>
+            The energy.
+            <br>
+            The nights people remembered afterward.
+            </p>
+
+            <p>
+            As the events grew, police attention increased. Meets started getting shut down more often. Organizing became more stressful and risky.
+            </p>
+
+            <p>
+            Eventually, things slowed down.
+            </p>
+
+            <p>
+            Not because the vision disappeared.
+            </p>
+
+            <p>
+            Because the vision evolved.
+            </p>
+
+            <p>
+            The new era of Squeeze Team MTL is about building something bigger, safer, more organized, and more permanent.
+            </p>
+
+            <p>
+            It will take time.
+            </p>
+
+            <p>
+            But the vision is real.
+            </p>
+
+            <p style="
+                margin-top:70px;
+                font-size:26px;
+                font-weight:700;
+                text-align:center;
+                letter-spacing:4px;
+            ">
+                FROM ONE MISSED NIGHT
+                <br>
+                TO A MOVEMENT
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
 <!-- MAIN WEBSITE -->
 
 <div class="main-site" id="mainSite">
 
-    <!-- Background glow -->
-
     <div class="background-glow"></div>
-
-    <!-- Floating particles -->
 
     <div class="particle" style="left:10%; animation-duration:12s;"></div>
     <div class="particle" style="left:25%; animation-duration:18s;"></div>
@@ -343,15 +556,15 @@ button:hover{
 
         <form action="https://formspree.io/f/mjglzknd" method="POST">
 
-            <input 
-                type="email" 
-                name="email" 
+            <input
+                type="email"
+                name="email"
                 placeholder="EMAIL"
             >
 
-            <input 
-                type="tel" 
-                name="phone" 
+            <input
+                type="tel"
+                name="phone"
                 placeholder="PHONE NUMBER"
             >
 
@@ -363,6 +576,10 @@ button:hover{
 
         <button class="music-btn" onclick="openVideo()">
             ENTER EXPERIENCE
+        </button>
+
+        <button class="music-btn" onclick="openStory()">
+            THE STORY OF SQUEEZE TEAM
         </button>
 
         <div class="note">
@@ -383,30 +600,41 @@ button:hover{
 
 function openVideo(){
 
-    // Hide website
     document.getElementById("mainSite").style.display = "none";
 
-    // Show video screen
     document.getElementById("videoScreen").style.display = "flex";
 
-    // Play video
     document.getElementById("mainVideo").play();
 
-    // Play music
     document.getElementById("bgMusic").play();
 
 }
 
 function closeVideo(){
 
-    // Hide video
     document.getElementById("videoScreen").style.display = "none";
 
-    // Show website again
     document.getElementById("mainSite").style.display = "flex";
 
-    // Pause video only
     document.getElementById("mainVideo").pause();
+
+}
+
+function openStory(){
+
+    document.getElementById("mainSite").style.display = "none";
+
+    document.getElementById("storyScreen").style.display = "block";
+
+    document.getElementById("bgMusic").play();
+
+}
+
+function closeStory(){
+
+    document.getElementById("storyScreen").style.display = "none";
+
+    document.getElementById("mainSite").style.display = "flex";
 
 }
 
