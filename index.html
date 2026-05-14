@@ -202,7 +202,7 @@ button:hover{
     box-shadow:0 0 30px rgba(255,255,255,0.2);
 }
 
-/* Enter experience button */
+/* Experience button */
 
 .music-btn{
     margin-top:18px;
@@ -339,6 +339,44 @@ button:hover{
     color:black;
 }
 
+/* Music toggle */
+
+#musicToggle{
+
+    position:fixed;
+
+    bottom:20px;
+    right:20px;
+
+    z-index:2000;
+
+    background:rgba(0,0,0,0.5);
+    color:white;
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    padding:12px 16px;
+
+    font-size:10px;
+    letter-spacing:2px;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(10px);
+
+    width:auto;
+
+    transition:0.3s ease;
+
+}
+
+#musicToggle:hover{
+
+    background:white;
+    color:black;
+
+}
+
 /* Fade animation */
 
 @keyframes fadeIn{
@@ -408,101 +446,39 @@ button:hover{
             </p>
 
             <p>
-            It was not created by a company, a major organizer, or a group of people with a full plan. It started from one person, at a young age, newly connected to Montreal’s automotive scene, with a car, a camera mindset, and a frustration that turned into motivation.
+            It started from one person with a vision to create something cinematic, underground, and different for Montreal’s car culture.
             </p>
 
             <p>
-            The idea started after missing a major Montreal car event hosted by another known figure in the scene. At the time, being new around Montreal’s car culture, missing that night felt like missing something important. Instead of waiting for the next one, the decision was made to create something independent.
+            The first Squeeze Team MTL meet happened in March 2025 and nobody expected it to go as crazy as it did.
             </p>
 
             <p>
-            That was the moment Squeeze Team MTL was born.
+            Over 100 cars showed up. Fireworks were going off, cars were pulling in nonstop, and the whole atmosphere felt straight out of a movie.
             </p>
 
             <p>
-            The goal was never drama.
-            <br><br>
-            The goal was atmosphere.
+            One of the most unforgettable moments was a white Infiniti G37 sliding under the lights while people surrounded the spot filming everything.
             </p>
 
             <p>
-            The first Squeeze Team MTL meet happened in March 2025, and nobody expected it to go the way it did.
+            From the start, media was everything. The edits, drone footage, reels, and clips were what made people want to experience the meets themselves.
             </p>
 
             <p>
-            Over 100 cars showed up — possibly closer to 150.
+            The first posts from Squeeze Team MTL exploded across Instagram and TikTok and the community started growing immediately.
             </p>
 
             <p>
-            The first location looked straight out of a movie. Cars were pulling in nonstop. People were filming. Fireworks were going off. The whole place had that Fast and Furious type of feeling where everyone knew something special was happening.
+            As the meets became bigger, police attention increased and events became harder to organize safely.
             </p>
 
             <p>
-            One of the most unforgettable moments from that first night was a white Infiniti G37 sliding under the lights while people surrounded the spot recording everything.
+            But the vision never disappeared.
             </p>
 
             <p>
-            The spots were usually chosen by looking through maps, searching for areas with the right size, the right lighting, and the right atmosphere.
-            </p>
-
-            <p>
-            From the start, media was everything. The videos, edits, drone shots, reels, and clips were the reason people wanted to come.
-            </p>
-
-            <p>
-            The first posts from Squeeze Team MTL went crazy on Instagram and TikTok. People were seeing the energy online and wanted to experience it in person.
-            </p>
-
-            <p>
-            There was also drama early on.
-            </p>
-
-            <p>
-            Fake accounts, fake group chats, fake claims about who the “real” owner was started appearing online.
-            </p>
-
-            <p>
-            Looking back, it was more funny than stressful.
-            </p>
-
-            <p>
-            Because the real brand was never just an account name.
-            <br><br>
-            It was the atmosphere.
-            <br>
-            The footage.
-            <br>
-            The energy.
-            <br>
-            The nights people remembered afterward.
-            </p>
-
-            <p>
-            As the events grew, police attention increased. Meets started getting shut down more often. Organizing became more stressful and risky.
-            </p>
-
-            <p>
-            Eventually, things slowed down.
-            </p>
-
-            <p>
-            Not because the vision disappeared.
-            </p>
-
-            <p>
-            Because the vision evolved.
-            </p>
-
-            <p>
-            The new era of Squeeze Team MTL is about building something bigger, safer, more organized, and more permanent.
-            </p>
-
-            <p>
-            It will take time.
-            </p>
-
-            <p>
-            But the vision is real.
+            The future of Squeeze Team MTL is about building something bigger, safer, more organized, and permanent.
             </p>
 
             <p style="
@@ -592,11 +568,35 @@ button:hover{
 
 <!-- BACKGROUND MUSIC -->
 
-<audio id="bgMusic" loop>
+<audio id="bgMusic" loop autoplay>
     <source src="song.mp3" type="audio/mpeg">
 </audio>
 
+<!-- MUSIC TOGGLE -->
+
+<button id="musicToggle" onclick="toggleMusic()">
+    PAUSE MUSIC
+</button>
+
 <script>
+
+/* AUTOPLAY MUSIC */
+
+window.addEventListener("load", () => {
+
+    const music = document.getElementById("bgMusic");
+
+    music.volume = 0.5;
+
+    music.play().catch(() => {
+
+        console.log("Autoplay blocked until interaction.");
+
+    });
+
+});
+
+/* OPEN VIDEO */
 
 function openVideo(){
 
@@ -606,9 +606,9 @@ function openVideo(){
 
     document.getElementById("mainVideo").play();
 
-    document.getElementById("bgMusic").play();
-
 }
+
+/* CLOSE VIDEO */
 
 function closeVideo(){
 
@@ -620,21 +620,47 @@ function closeVideo(){
 
 }
 
+/* OPEN STORY */
+
 function openStory(){
 
     document.getElementById("mainSite").style.display = "none";
 
     document.getElementById("storyScreen").style.display = "block";
 
-    document.getElementById("bgMusic").play();
-
 }
+
+/* CLOSE STORY */
 
 function closeStory(){
 
     document.getElementById("storyScreen").style.display = "none";
 
     document.getElementById("mainSite").style.display = "flex";
+
+}
+
+/* TOGGLE MUSIC */
+
+function toggleMusic(){
+
+    const music = document.getElementById("bgMusic");
+
+    const button = document.getElementById("musicToggle");
+
+    if(music.paused){
+
+        music.play();
+
+        button.innerHTML = "PAUSE MUSIC";
+
+    } else {
+
+        music.pause();
+
+        button.innerHTML = "PLAY MUSIC";
+
+    }
 
 }
 
